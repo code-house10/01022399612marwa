@@ -12,7 +12,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Updated Title for SEO -->
-    <title>الطيار إكسبريس لنقل الاثاث والبضائع - أفضل شركة نقل عفش</title>
+    <title>المروة لنقل الاثاث والبضائع - أفضل شركة نقل عفش</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for Icons -->
@@ -95,34 +95,89 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
         }
 
-        /* Floating Call Button Styles */
-        #floating-call-button {
+        /* Mobile Floating Call Buttons */
+        #floating-call-buttons {
             position: fixed;
-            bottom: 20px;
-            left: 20px;
+            right: 12px;
+            left: 12px;
+            bottom: calc(12px + env(safe-area-inset-bottom));
             z-index: 1000;
+            display: none;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            direction: ltr;
         }
-        #floating-call-button a {
+        #floating-call-buttons .mobile-floating-call {
+            min-height: 52px;
+            border: 0;
+            border-radius: 9999px;
             display: flex;
             align-items: center;
-            background-color: #25d366; /* WhatsApp green */
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 9999px; /* Tailwind's rounded-full */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease-in-out;
+            justify-content: center;
+            gap: 8px;
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 14px;
+            letter-spacing: .2px;
+            box-shadow: 0 12px 28px rgba(22, 163, 74, .34);
+            transition: transform .25s ease, box-shadow .25s ease;
         }
-        #floating-call-button a:hover {
-            transform: scale(1.05);
+        #floating-call-buttons .mobile-floating-call:first-child {
+            background: linear-gradient(135deg, #22c55e, #15803d);
         }
-        #floating-call-button .phone-icon {
-            font-size: 1.5rem;
-            margin-left: 0.75rem;
-            animation: none; /* Override animate-phone for this specific use case */
+        #floating-call-buttons .mobile-floating-call:last-child {
+            background: linear-gradient(135deg, #16a34a, #065f46);
         }
-        #floating-call-button .phone-number {
-            font-size: 1.25rem;
-            font-weight: bold;
+        #floating-call-buttons .mobile-floating-call i {
+            width: 31px;
+            height: 31px;
+            border-radius: 9999px;
+            display: grid;
+            place-items: center;
+            background: rgba(255, 255, 255, .18);
+            font-size: 14px;
+        }
+        #floating-call-buttons .mobile-floating-call:hover,
+        #floating-call-buttons .mobile-floating-call:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 34px rgba(22, 163, 74, .44);
+            outline: none;
+        }
+        @media (max-width: 767px) {
+            #floating-call-buttons {
+                display: grid;
+            }
+            /* Small rounded countdown box at the right-bottom above the mobile call buttons */
+            #countdown-timer {
+                right: 12px;
+                left: auto;
+                bottom: calc(82px + env(safe-area-inset-bottom));
+                width: 148px;
+                max-width: 148px;
+                min-width: 148px;
+                padding: 0.65rem 0.75rem;
+                border-radius: 18px;
+                z-index: 1001;
+                box-shadow: 0 14px 34px rgba(230, 0, 0, .28);
+            }
+            #countdown-timer .text-sm {
+                font-size: 11px;
+                line-height: 1.4;
+                margin-bottom: 0.25rem;
+            }
+            #countdown-timer .time-unit {
+                font-size: 1.02rem;
+                margin: 0 2px;
+            }
+            #countdown-timer .open-modal-button {
+                padding: 0.45rem 0.7rem;
+                font-size: 12px;
+                line-height: 1.2;
+                margin-top: 0.15rem;
+            }
+            body {
+                padding-bottom: 76px;
+            }
         }
         
         /* Offer Banner Styles */
@@ -153,6 +208,50 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: #1a1a1a;
             cursor: pointer;
         }
+
+        /* Mobile centered company name in header */
+        .mobile-header-company-name {
+            display: none;
+        }
+        @media (max-width: 767px) {
+            header nav {
+                position: relative;
+                min-height: 72px;
+            }
+            .mobile-header-company-name {
+                display: block;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                max-width: calc(100% - 150px);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                text-align: center;
+                color: #111827;
+                font-size: 17px;
+                font-weight: 900;
+                line-height: 1.2;
+                pointer-events: none;
+                z-index: 2;
+            }
+            header nav > a[href="#hero"] {
+                max-width: 78px;
+                overflow: hidden;
+                position: relative;
+                z-index: 3;
+            }
+            header nav > a[href="#hero"] img {
+                max-width: 78px;
+                height: 48px;
+            }
+            header nav .md\:hidden {
+                position: relative;
+                z-index: 3;
+            }
+        }
+
     </style>
 </head>
 <body class="bg-gray-50">
@@ -196,11 +295,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <!-- Logo Image: Al-Tayyar Express -->
             <a href="#hero" class="flex items-center gap-3">
-                <img src="https://ik.imagekit.io/mkek1asn5/images/tayyar-logo.png" alt="شعار الطيار إكسبريس" class="h-12 md:h-16 object-contain">
+                <img src="https://ik.imagekit.io/mkek1asn5/images/marwa-logo.webp" alt="شعار المروة" class="h-14 md:h-16 object-contain">
                 <div class="flex flex-col">
                     
                 </div>
             </a>
+
+            <span class="mobile-header-company-name">المروة لنقل العفش</span>
 
             <div class="hidden md:flex items-center space-x-6 space-x-reverse">
                 <a href="#hero" class="text-gray-700 hover:text-[#e60000] font-bold transition duration-300">الرئيسية</a>
@@ -233,7 +334,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- 🏠 Hero Section - Updated content -->
         <section id="hero" class="hero-bg text-white h-[85vh] flex items-center justify-center text-center">
             <div class="container mx-auto px-4">
-                <h1 class="text-4xl md:text-6xl font-black mb-4">الطيار إكسبريس</h1>
+                <h1 class="text-4xl md:text-6xl font-black mb-4">المروة لنقل العفش</h1>
                 <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8 font-semibold">نقل الاثاث والبضائع باحترافية وأمان | ونش رفع مجهز</p>
                 <button class="open-modal-button bg-[#e60000] hover:bg-red-700 text-white font-bold py-4 px-10 rounded-lg text-lg transition duration-300 shadow-lg animate-pulse">
                     📞 احصل على عرض سعر فوري!
@@ -248,7 +349,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="md:w-1/2">
                         <span class="bg-red-100 text-[#e60000] text-sm font-bold px-3 py-1 rounded-full">خدمات نقل احترافية</span>
                         <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-4 mb-6">هل تبحث عن شركة نقل موثوقة في القاهرة الكبرى؟</h2>
-                        <p class="text-gray-600 mb-6 leading-relaxed text-lg">لا تقلق بعد الآن بشأن عملية النقل! <strong>الطيار إكسبريس</strong> هي الشركة الرائدة في القاهرة الكبرى، متخصصة في توفير خدمات نقل الاثاث والبضائع باحترافية وسرعة وأمان. نحن نضمن لك تجربة نقل خالية من المتاعب، من التعبئة والفك إلى النقل والتركيب.</p>
+                        <p class="text-gray-600 mb-6 leading-relaxed text-lg">لا تقلق بعد الآن بشأن عملية النقل! <strong>المروة</strong> هي الشركة الرائدة في القاهرة الكبرى، متخصصة في توفير خدمات نقل الاثاث والبضائع باحترافية وسرعة وأمان. نحن نضمن لك تجربة نقل خالية من المتاعب، من التعبئة والفك إلى النقل والتركيب.</p>
                         <a href="#services-grid" class="bg-[#e60000] hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-md inline-block">
                             اكتشف خدماتنا المتكاملة <i class="fa fa-arrow-left mr-2"></i>
                         </a>
@@ -263,7 +364,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- 🚚 Service Guarantee Section - Updated content -->
         <section id="guarantee" class="bg-[#1a1a1a] text-white py-20">
             <div class="container mx-auto px-4 md:px-8 text-center">
-                <h2 class="text-3xl font-bold mb-2">لماذا تختار الطيار إكسبريس؟</h2>
+                <h2 class="text-3xl font-bold mb-2">لماذا تختار المروة؟</h2>
                 <p class="text-gray-300 mb-10">نحن نقدم أفضل خدمة نقل اثاث وبضائع بضمان كامل وبأسعار تنافسية.</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="p-4 bg-gray-800 rounded-lg">
@@ -315,7 +416,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <section id="services-grid" class="py-20 bg-gray-100">
             <div class="container mx-auto px-4 md:px-8 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">🔧 خدمات نقل متكاملة</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto mb-12">في الطيار إكسبريس، نقدم مجموعة كاملة من الخدمات لتسهيل عملية النقل.</p>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-12">في المروة، نقدم مجموعة كاملة من الخدمات لتسهيل عملية النقل.</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                         <i class="fa fa-screwdriver-wrench text-4xl text-[#e60000] mb-4"></i>
@@ -501,7 +602,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                  </div>
                              </div>
                          </div>
-                         <p class="text-gray-600 text-sm leading-relaxed">"أفضل تجربة نقل على الإطلاق مع الطيار إكسبريس. الفريق كان محترفًا وسريعًا وحافظ على كل شيء سليم أثناء نقل بضائعنا."</p>
+                         <p class="text-gray-600 text-sm leading-relaxed">"أفضل تجربة نقل على الإطلاق مع المروة. الفريق كان محترفًا وسريعًا وحافظ على كل شيء سليم أثناء نقل بضائعنا."</p>
                      </div>
                      <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
                          <div class="flex items-center mb-4">
@@ -525,7 +626,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                  </div>
                              </div>
                          </div>
-                         <p class="text-gray-600 text-sm leading-relaxed">"التزام بالمواعيد واحترافية عالية جدًا. استخدمت خدمات الطيار إكسبريس أكثر من مرة ولن أتردد في اختيارهم مجدداً."</p>
+                         <p class="text-gray-600 text-sm leading-relaxed">"التزام بالمواعيد واحترافية عالية جدًا. استخدمت خدمات المروة أكثر من مرة ولن أتردد في اختيارهم مجدداً."</p>
                      </div>
                  </div>
              </div>
@@ -563,11 +664,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button class="open-modal-button bg-white text-red-600 font-bold py-2 px-4 rounded-full text-sm hover:bg-gray-200 transition shadow-sm">احجز الآن</button>
     </div>
 
-    <!-- Floating Call Button -->
-    <div id="floating-call-button">
-        <a href="#" class="open-modal-button">
-            <i class="fas fa-phone-alt animate-phone text-2xl"></i>
-        </a>
+    <!-- Mobile Floating Call Buttons -->
+    <div id="floating-call-buttons" aria-label="أزرار الاتصال السريع">
+        <button type="button" class="mobile-floating-call open-modal-button" data-phone="01022399612" aria-label="اتصل على 01022399612">
+            <i class="fas fa-phone-alt" aria-hidden="true"></i>
+            <span dir="ltr">01022399612</span>
+        </button>
+        <button type="button" class="mobile-floating-call open-modal-button" data-phone="01150868091" aria-label="اتصل على 01150868091">
+            <i class="fas fa-phone-alt" aria-hidden="true"></i>
+            <span dir="ltr">01150868091</span>
+        </button>
     </div>
 
     <!-- 🔚 Footer -->
@@ -578,14 +684,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div>
                     <!-- Footer Logo Image Style -->
                     <div class="flex items-center gap-3 mb-6 bg-white p-3 rounded-lg inline-flex">
-                        <img src="https://ik.imagekit.io/mkek1asn5/images/tayyar-logo.png" alt="شعار الطيار إكسبريس" class="h-12 md:h-16 object-contain">
+                        <img src="https://ik.imagekit.io/mkek1asn5/images/marwa-logo.webp" alt="شعار المروة" class="h-12 md:h-16 object-contain">
                         <div class="flex flex-col">
-                            <span class="font-black text-xl md:text-2xl text-gray-800 leading-none mb-1">الطيار إكسبريس</span>
+                            <span class="font-black text-xl md:text-2xl text-gray-800 leading-none mb-1">المروة</span>
                             <span class="text-xs md:text-sm text-[#e60000] font-bold leading-none">لنقل الاثاث والبضائع</span>
                         </div>
                     </div>
 
-                    <p class="text-gray-400 leading-relaxed mb-6 text-sm md:text-base">راحتك وأمان بضائعك يبدأ من هنا. في الطيار إكسبريس نقدم لك أفضل تجربة نقل أثاث وبضائع آمنة وسريعة ومضمونة في جميع أنحاء القاهرة الكبرى والمحافظات.</p>
+                    <p class="text-gray-400 leading-relaxed mb-6 text-sm md:text-base">راحتك وأمان بضائعك يبدأ من هنا. في المروة نقدم لك أفضل تجربة نقل أثاث وبضائع آمنة وسريعة ومضمونة في جميع أنحاء القاهرة الكبرى والمحافظات.</p>
                     <ul class="space-y-3 text-gray-300 text-sm md:text-base">
                         <li><i class="fa fa-phone ml-2 text-[#e60000]"></i> 01022399612</li>
                         <li><i class="fa fa-envelope ml-2 text-[#e60000]"></i> contact@movingtransport.online</li>
@@ -607,7 +713,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-center">
                 <p class="text-gray-500 text-sm mb-4 md:mb-0">
-                    &copy; 2024 جميع الحقوق محفوظة لـ <span class="font-bold text-gray-300">شركة الطيار إكسبريس لنقل الاثاث والبضائع</span>.
+                    &copy; 2024 جميع الحقوق محفوظة لـ <span class="font-bold text-gray-300">شركة المروة لنقل الاثاث والبضائع</span>.
                 </p>
                 <div class="flex space-x-4 space-x-reverse">
                     <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f text-xl"></i></a>
@@ -641,9 +747,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <i class="fas fa-phone-volume text-5xl text-green-500 mb-4 animate-phone"></i>
             <h2 class="text-2xl font-bold text-gray-800 mb-2">للحجز الفوري اتصل بنا!</h2>
             <p class="text-gray-600 mb-6">إحنا في خدمتك.. للرد على جميع استفساراتك وتأكيد حجزك فوراً.</p>
-            <a href="tel:01022399612" class="text-3xl md:text-4xl font-black text-green-700 my-4 p-4 bg-green-100 rounded-lg inline-flex items-center justify-center gap-3 hover:bg-green-200 transition duration-300 shadow-inner">
+            <a id="direct-call-link" href="tel:01022399612" class="text-3xl md:text-4xl font-black text-green-700 my-4 p-4 bg-green-100 rounded-lg inline-flex items-center justify-center gap-3 hover:bg-green-200 transition duration-300 shadow-inner">
                 <i class="fas fa-phone-alt"></i>
-                <span dir="ltr">01022399612</span>
+                <span id="direct-call-number" dir="ltr">01022399612</span>
             </a>
             <p class="text-sm text-gray-500 mt-2">اضغط على الرقم للاتصال المباشر والحصول على خصم 25%</p>
         </div>
@@ -672,6 +778,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         const openModalButtons = document.querySelectorAll('.open-modal-button');
         const confirmIntentButton = document.getElementById('confirm-intent-button');
         const closeButtons = document.querySelectorAll('.close-modal-button');
+        const directCallLink = document.getElementById('direct-call-link');
+        const directCallNumber = document.getElementById('direct-call-number');
+        let selectedPhoneNumber = '01022399612';
+
+        const setSelectedPhoneNumber = (phoneNumber) => {
+            selectedPhoneNumber = phoneNumber || '01022399612';
+            if (directCallLink && directCallNumber) {
+                directCallLink.href = `tel:${selectedPhoneNumber}`;
+                directCallNumber.textContent = selectedPhoneNumber;
+            }
+        };
         
         // Function to close all modals
         const closeAllModals = () => {
@@ -679,17 +796,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             directCallModal.classList.add('hidden');
         };
 
-        // Open Step 1 Modal
+        // Open Step 1 Modal and save the requested phone number when available
         openModalButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
+                setSelectedPhoneNumber(button.dataset.phone || '01022399612');
                 step1Modal.classList.remove('hidden');
                 countdownTimer.classList.add('hidden'); // Hide timer when modal opens
             });
         });
 
-        // Open Step 2 Modal from Step 1
+        // Open Step 2 Modal from Step 1 with the selected phone number
         confirmIntentButton.addEventListener('click', () => {
+            setSelectedPhoneNumber(selectedPhoneNumber);
             step1Modal.classList.add('hidden');
             directCallModal.classList.remove('hidden');
         });
