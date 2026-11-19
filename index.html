@@ -666,9 +666,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Mobile Floating Call Buttons -->
     <div id="floating-call-buttons" aria-label="أزرار الاتصال السريع">
-        <button type="button" class="mobile-floating-call open-modal-button" data-phone="01096296216" aria-label="اتصل على01208067044⁩">
+        <button type="button" class="mobile-floating-call open-modal-button" data-phone="01208067044⁩" aria-label="اتصل على01208067044⁩">
             <i class="fas fa-phone-alt" aria-hidden="true"></i>
-            <span dir="ltr">01096296216</span>
+            <span dir="ltr">01208067044⁩</span>
         </button>
         <button type="button" class="mobile-floating-call open-modal-button" data-phone="01150868091" aria-label="اتصل على 01150868091">
             <i class="fas fa-phone-alt" aria-hidden="true"></i>
@@ -747,9 +747,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <i class="fas fa-phone-volume text-5xl text-green-500 mb-4 animate-phone"></i>
             <h2 class="text-2xl font-bold text-gray-800 mb-2">للحجز الفوري اتصل بنا!</h2>
             <p class="text-gray-600 mb-6">إحنا في خدمتك.. للرد على جميع استفساراتك وتأكيد حجزك فوراً.</p>
-            <a id="direct-call-link" href="tel:01096296216" class="text-3xl md:text-4xl font-black text-green-700 my-4 p-4 bg-green-100 rounded-lg inline-flex items-center justify-center gap-3 hover:bg-green-200 transition duration-300 shadow-inner">
+            <a id="direct-call-link" href="tel:01208067044⁩" class="text-3xl md:text-4xl font-black text-green-700 my-4 p-4 bg-green-100 rounded-lg inline-flex items-center justify-center gap-3 hover:bg-green-200 transition duration-300 shadow-inner">
                 <i class="fas fa-phone-alt"></i>
-                <span id="direct-call-number" dir="ltr">01096296216</span>
+                <span id="direct-call-number" dir="ltr">01208067044⁩</span>
             </a>
             <p class="text-sm text-gray-500 mt-2">اضغط على الرقم للاتصال المباشر والحصول على خصم 25%</p>
         </div>
@@ -780,10 +780,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         const closeButtons = document.querySelectorAll('.close-modal-button');
         const directCallLink = document.getElementById('direct-call-link');
         const directCallNumber = document.getElementById('direct-call-number');
-        let selectedPhoneNumber = '01096296216';
+        let selectedPhoneNumber = '01208067044⁩';
 
         const setSelectedPhoneNumber = (phoneNumber) => {
-            selectedPhoneNumber = phoneNumber || '01096296216';
+            selectedPhoneNumber = phoneNumber || '01208067044⁩';
             if (directCallLink && directCallNumber) {
                 directCallLink.href = `tel:${selectedPhoneNumber}`;
                 directCallNumber.textContent = selectedPhoneNumber;
@@ -800,7 +800,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         openModalButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
-                setSelectedPhoneNumber(button.dataset.phone || '01096296216');
+                setSelectedPhoneNumber(button.dataset.phone || '01208067044⁩');
                 step1Modal.classList.remove('hidden');
                 countdownTimer.classList.add('hidden'); // Hide timer when modal opens
             });
